@@ -79,4 +79,8 @@ public class Matematicas {
         return a.sumar(b);
     }
     
+    public static Polinomio2 sumar(Polinomio2 p1, Polinomio2 p2) throws Exception{
+        return Polinomio2.sumar(p1, p2);
+    }
+    
 }

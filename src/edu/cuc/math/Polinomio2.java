@@ -48,26 +48,15 @@ public class Polinomio2 {
         }
     }
     
-    public Polinomio2 sumar(Polinomio2 poli1, Polinomio2 poli2){
-        int coefA = poli1.a+poli2.a;
-        int coefB = poli1.b+poli2.b;
-        int coefC = poli1.c+poli2.c;
-        try{
-            return new Polinomio2(coefA, coefB, coefC);
-        }catch(Exception e){
-            return null;
-        }
+    public static Polinomio2 sumar(Polinomio2 poli1, Polinomio2 poli2) throws Exception{
+        return poli1.sumar(poli2);
     }
     
-    public Polinomio2 sumar(Polinomio2 poli){
+    public Polinomio2 sumar(Polinomio2 poli) throws Exception{
         int coefA = this.a+poli.a;
         int coefB = this.b+poli.b;
         int coefC = this.c+poli.c;
-        try{
-            return new Polinomio2(coefA, coefB, coefC);
-        }catch(Exception e){
-            return null;
-        }
+        return new Polinomio2(coefA, coefB, coefC);
     }
     
     public Polinomio2 restar(Polinomio2 poli){
@@ -207,23 +196,6 @@ public class Polinomio2 {
             root1 += (-b + Math.sqrt(disc))/(2.0*a);
             root2 += (-b - Math.sqrt(disc))/(2.0*a);
         }
-    }
-    
-    public static void main(String args[]){
-        //1. Declaración de variables
-        Polinomio2 poli1;
-        Polinomio2 poli2;
-        try{
-            poli1 = new Polinomio2(1, 11, -1);
-            poli2 = new Polinomio2(1, 11, -1);
-            System.out.println("Polinomio 1: "+poli1+"\nPolinomio 2: "+poli2);
-            System.out.println();
-            poli1.calcRoots();
-            System.out.println("\nRaiz1:\t"+poli1.root1+"\nRaiz2:\t"+poli1.root2);
-        }catch(Exception ex){
-            System.out.println(ex.getMessage());
-        }
-        
     }
     
 }
