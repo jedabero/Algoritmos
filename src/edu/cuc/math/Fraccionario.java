@@ -61,4 +61,13 @@ public class Fraccionario {
         }
     }
     
+    public Fraccionario sumar(Fraccionario f) throws Exception{
+        int denComun = denominador*f.denominador;
+        int num1 = numerador*f.denominador;
+        int num2 = f.numerador*denominador;
+        int num = num1 + num2;
+        Fraccionario r = new Fraccionario(num, denComun);
+        return r;
+    }
+    
 }

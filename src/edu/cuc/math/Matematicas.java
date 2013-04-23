@@ -75,6 +75,8 @@ public class Matematicas {
         }
     }
     
-    
+    public static Fraccionario sumar(Fraccionario a, Fraccionario b) throws Exception{
+        return a.sumar(b);
+    }
     
 }
