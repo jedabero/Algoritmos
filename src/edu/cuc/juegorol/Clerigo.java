@@ -18,4 +18,19 @@ public class Clerigo extends Personaje {
         }
     }
     
+    public boolean curar(Personaje p){
+        int hp = p.getPuntosVida();
+        int maxHP = p.getMaxPuntosVida();
+        if(hp < maxHP){
+            if(hp+10<=maxHP){
+                p.setPuntosVida(hp+10);
+            }else{
+                p.setPuntosVida(maxHP);
+            }
+            return true;
+        }else {
+            return false;
+        }
+    }
+    
 }
