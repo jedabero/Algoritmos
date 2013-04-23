@@ -93,7 +93,7 @@ public class Matematicas {
         return cont;
     }
     
-    public boolean esPrimo(int n){
+    public static boolean esPrimo(int n){
         int numDiv = contarDivisores(n);
         return (numDiv == 2);
     }
@@ -180,4 +180,23 @@ public class Matematicas {
         return -1;
     }
     
+    public static int contarPrimos(int v[]){
+        int cont = 0;
+        for (int i = 0; i < v.length; i++) {
+            if (esPrimo(v[i])) {
+                cont++;
+            }
+        }
+        return cont;
+    }
+    
+    public static int contarEnIntervalo(int v[], int a, int b) {
+        int cont = 0;
+        for (int i = 0; i < v.length; i++) {
+            if ((a < v[i])&&(v[i] > b)) {
+                cont++;
+            }
+        }
+        return cont;
+    }
 }
