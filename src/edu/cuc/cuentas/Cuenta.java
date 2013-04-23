@@ -8,7 +8,7 @@ package edu.cuc.cuentas;
 public class Cuenta {
     private Titular titular;
     private String numeroCuenta;
-    private double saldo;
+    protected double saldo;
     private Transaccion[] listaTransacciones;
     private boolean cuentaActiva;
     
@@ -62,10 +62,9 @@ public class Cuenta {
         }
     }
     
-    public boolean transferir(Cuenta ctaOrigen, Cuenta ctaDest, double monto)
-             throws Exception {
+    public boolean transferir(Cuenta ctaDest, double monto) throws Exception {
         if(monto > 0){
-            if(ctaOrigen.retirar(monto)){
+            if(retirar(monto)){
                 ctaDest.consignar(monto);
                 return true;
             }else{
@@ -74,6 +73,11 @@ public class Cuenta {
         }else{
             throw new Exception("Monto Invalido");
         }
+    }
+    
+    public static boolean transferir(Cuenta ctaOrigen, Cuenta ctaDest, double monto)
+             throws Exception {
+        return ctaOrigen.transferir(ctaDest, monto);
     }
     
     public void bloquear() throws Exception {
@@ -96,28 +100,6 @@ public class Cuenta {
         return (saldo < val);
     }
     
-    public void conignarAbono(double monto, double abono) throws Exception{
-        if (abono>0) {
-            if (saldo>1000000) {
-                consignar(abono);
-            }
-            consignar(monto);
-        } else {
-            throw new Exception("Valor Invalido");
-        }
-    }
-    
-    public boolean retirarEn(double monto) throws Exception{
-        if (monto <= saldo) {
-            if ((monto>300000)&&(saldo>5000000)) {
-                retirar(10000);
-            }
-            return retirar(monto);
-        } else {
-            return false;
-        }
-    }
-    
     public Cuenta cuentaConSaldoMayor(Cuenta ct){
         return (saldo>=ct.saldo)? this : ct;
     }
@@ -129,6 +111,5 @@ public class Cuenta {
     public  boolean titularConLetra(char c){
         return (getTitular().getApellidos().charAt(0) == c);
     }
-    
     
 }
