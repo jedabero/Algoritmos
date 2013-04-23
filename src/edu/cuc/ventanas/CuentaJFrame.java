@@ -14,6 +14,8 @@ import javax.swing.JOptionPane;
  */
 public class CuentaJFrame extends javax.swing.JFrame {
 
+    private Cuenta ctaVentana;
+    
     /**
      * Creates new form CuentaJFrame
      */
@@ -303,7 +305,11 @@ public class CuentaJFrame extends javax.swing.JFrame {
         }else{
             String txtmonto = textMonto.getText();
             double monto = Double.parseDouble(txtmonto);
-            ctaVentana.consignar(monto);
+            try {
+                ctaVentana.consignar(monto);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
             JOptionPane.showMessageDialog(this, "Se han consignado "+monto+" a la cuenta");
             txtSaldo.setText(""+ctaVentana.getSaldo());
         }
@@ -318,11 +324,15 @@ public class CuentaJFrame extends javax.swing.JFrame {
         }else{
             String txtmonto = textMonto.getText();
             double monto = Double.parseDouble(txtmonto);
-            if(ctaVentana.retirar(monto)){
-                JOptionPane.showMessageDialog(this, "Se han retirado "+monto+" de la cuenta");
-                txtSaldo.setText(""+ctaVentana.getSaldo());
-            }else{
-                JOptionPane.showMessageDialog(this, "Cuenta con saldo insuficiente");
+            try {
+                if(ctaVentana.retirar(monto)){
+                    JOptionPane.showMessageDialog(this, "Se han retirado "+monto+" de la cuenta");
+                    txtSaldo.setText(""+ctaVentana.getSaldo());
+                }else{
+                    JOptionPane.showMessageDialog(this, "Cuenta con saldo insuficiente");
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
             
             
@@ -367,7 +377,6 @@ public class CuentaJFrame extends javax.swing.JFrame {
         });
     }
     
-    private Cuenta ctaVentana;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsignar;
     private javax.swing.JButton btnCrearCuenta;
