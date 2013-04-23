@@ -83,4 +83,101 @@ public class Matematicas {
         return Polinomio2.sumar(p1, p2);
     }
     
+    public static int contarDivisores(int n){
+        int cont = 0;
+        for (int i = 1; i <= n; i++) {
+            if(n%i==0){
+                cont++;
+            }
+        }
+        return cont;
+    }
+    
+    public boolean esPrimo(int n){
+        int numDiv = contarDivisores(n);
+        return (numDiv == 2);
+    }
+    
+    public static int factorialCiclo(int n){
+        int p = 1;
+        for (int i = 1; i <= n; i++) {
+            p *= i;
+        }
+        return p;
+    }
+    
+    public static int factorialRecursivo(int n){
+        if (n == 0) {
+            return 1;
+        } else {
+            return factorialRecursivo(n-1)*n;
+        }
+    }
+    
+    public static boolean esPerfecto(int n){
+        int sum = 0;
+        for (int i = 1; i <= n/2; i++) {
+            if (n%i==0) {
+                sum += i;
+            }
+        }
+        return (sum == n);
+    }
+    
+    public static int sumarElementos(int v[]){
+        int sum = 0;
+        for (int i = 0; i < v.length; i++) {
+            sum += v[i];
+        }
+        return sum;
+    }
+    
+    public static int sumarElementosMQ(int v[]){
+        int sum = 0;
+        int i = 0;
+        while (i < v.length) {
+            sum += v[i];
+            i++;
+        }
+        return sum;
+    }
+    
+    public static int sumarElementosHMQ(int v[]){
+        int sum = 0;
+        int i = 0;
+        do {
+            sum += v[i];
+            i++;
+        } while (i < v.length);
+        return sum;
+    }
+    
+    public static int sumarElementosHH(int v[]){
+        int sum = 0;
+        int i = 0;
+        do {
+            sum += v[i];
+            i++;
+        } while (i >= v.length);
+        return sum;
+    }
+    
+    public static boolean buscar(int v[], int n){
+        for (int i = 0; i < v.length; i++) {
+            if (v[i]==n) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static int buscarPrimerPar(int v[]){
+        for (int i = 0; i < v.length; i++) {
+            if (v[i]%2 == 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    
 }
