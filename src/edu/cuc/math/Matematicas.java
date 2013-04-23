@@ -55,4 +55,26 @@ public class Matematicas {
         }
     }
     
+    public static int sumar(int a, int b){
+        return a+b;
+    }
+    
+    public static double sumar(double a, double b){
+        return a+b;
+    }
+    
+    public static int[] sumar(int[] a, int[] b) throws Exception{
+        if (a.length==b.length) {
+            int r[] = new int[a.length];
+            for (int i = 0; i < a.length; i++) {
+                r[i] = a[i] + b[i];
+            }
+            return r;
+        }else{
+            throw new Exception("Vectores  de diferente tamaño.");
+        }
+    }
+    
+    
+    
 }
