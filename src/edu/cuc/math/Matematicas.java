@@ -36,6 +36,24 @@ public class Matematicas {
         return cont;
     }
     
+    public static int contarDigitos(long n){
+        int cont = 1;
+        while (n>=10) {            
+            n = n/10;
+            cont++;
+        }
+        return cont;
+    }
+    
+    public static int contarDigitos(double n){
+        int cont = 1;
+        while (n>=10) {            
+            n = n/10;
+            cont++;
+        }
+        return cont;
+    }
+    
     public static int contarDivisores(int n){
         int cont = 0;
         for (int i = 1; i <= n; i++) {
@@ -76,7 +94,7 @@ public class Matematicas {
         return cont;
     }
     
-    public static String convetirABinario(int n){
+    public static String convertirABinario(int n){
         String conv = "";
         if (n<2) {
             conv = n + conv;
@@ -89,6 +107,51 @@ public class Matematicas {
             }
             return "1"+conv;
         }
+    }
+    
+    public static int convertirBinarioADecimal(int n){
+        int dig[] = new int[contarDigitos(n)];
+        for (int i = 0; i < dig.length; i++) {
+            dig[i] = n%2;
+            n /= 10;
+        }
+        
+        int sum = 0;
+        for (int i = dig.length-1; i >= 0; i--) {
+            sum *= 2;
+            sum += dig[i];
+        }
+        return sum;
+    }
+    
+    public static int convertirBinarioADecimal(long n){
+        long dig[] = new long[contarDigitos(n)];
+        for (int i = 0; i < dig.length; i++) {
+            dig[i] = n%2;
+            n /= 10;
+        }
+        
+        int sum = 0;
+        for (int i = dig.length-1; i >= 0; i--) {
+            sum *= 2;
+            sum += dig[i];
+        }
+        return sum;
+    }
+    
+    public static double convertirBinarioADecimal(double n){
+        double dig[] = new double[contarDigitos(n)];
+        for (int i = 0; i < dig.length; i++) {
+            dig[i] = n%2;
+            n /= 10;
+        }
+        
+        double sum = 0;
+        for (int i = dig.length-1; i >= 0; i--) {
+            sum *= 2;
+            sum += dig[i];
+        }
+        return sum;
     }
     
     public static boolean esDivisorDe(int n, int d){
