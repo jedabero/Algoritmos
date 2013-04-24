@@ -74,6 +74,16 @@ public class Matematicas {
         return cont;
     }
     
+    public static int contarPares(int n){
+        int cont = 0;
+        for (int i = 1; i < n; i++) {
+            if (i%2 == 0) {
+                cont++;
+            }
+        }
+        return cont;
+    }
+    
     public static int contarPares(int v[]){
         int cont = 0;
         for (int i = 0; i < v.length; i++) {
