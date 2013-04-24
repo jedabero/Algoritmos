@@ -182,6 +182,14 @@ public class Matematicas {
         return sgte;
     }
     
+    public static int siguientePerfecto(int n){
+        int sgte = n + 1;
+        while (!esPerfecto(sgte)) {
+            sgte++;
+        }
+        return sgte;
+    }
+    
     public static int sumar(int a, int b){
         return a+b;
     }
