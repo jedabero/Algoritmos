@@ -111,13 +111,13 @@ public class Matematicas {
     
     public static int convertirBinarioADecimal(int n){
         int dig[] = new int[contarDigitos(n)];
-        for (int i = 0; i < dig.length; i++) {
+        for (int i = dig.length-1; i >= 0; i--) {
             dig[i] = n%2;
             n /= 10;
         }
         
         int sum = 0;
-        for (int i = dig.length-1; i >= 0; i--) {
+        for (int i = 0; i < dig.length; i++) {
             sum *= 2;
             sum += dig[i];
         }
@@ -154,7 +154,7 @@ public class Matematicas {
         return sum;
     }
     
-    public static boolean esDivisorDe(int n, int d){
+    public static boolean esDivisor(int n, int d){
         return (n%d==0);
     }
     
@@ -163,13 +163,7 @@ public class Matematicas {
     }
     
     public static boolean esPerfecto(int n){
-        int sum = 0;
-        for (int i = 1; i <= n/2; i++) {
-            if (n%i==0) {
-                sum += i;
-            }
-        }
-        return (sum == n);
+        return (sumarDivisores(n) == n);
     }
     
     public static boolean esPrimo(int n){
@@ -279,6 +273,16 @@ public class Matematicas {
     
     public static Polinomio2 sumar(Polinomio2 p1, Polinomio2 p2) throws Exception{
         return Polinomio2.sumar(p1, p2);
+    }
+    
+    public static int sumarDivisores(int n){
+        int sum = 0;
+        for (int i = 1; i <= n/2; i++) {
+            if (n%i==0) {
+                sum += i;
+            }
+        }
+        return sum;
     }
     
     public static int sumarElementos(int v[]){
