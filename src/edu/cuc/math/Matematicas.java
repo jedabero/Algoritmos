@@ -158,7 +158,7 @@ public class Matematicas {
         do {
             sum += v[i];
             i++;
-        } while (i >= v.length);
+        } while (!(i >= v.length));
         return sum;
     }
     
@@ -193,10 +193,18 @@ public class Matematicas {
     public static int contarEnIntervalo(int v[], int a, int b) {
         int cont = 0;
         for (int i = 0; i < v.length; i++) {
-            if ((a < v[i])&&(v[i] > b)) {
+            if ((a < v[i])&&(v[i] < b)) {
                 cont++;
             }
         }
         return cont;
     }
+    
+    public static double promedio(int v[]){
+        return (sumarElementos(v)/(double)v.length);
+    }
+    
+    
+    
+    
 }
