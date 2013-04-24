@@ -201,6 +201,43 @@ public class Matematicas {
         return (a>=b)? a : b;
     }
     
+    public static int mayor(int v[]){
+        int max = v[0];
+        for (int i = 0; i < v.length; i++) {
+            if(v[i]>max){
+                max = v[i];
+            }
+        }
+        return max;
+    }
+    
+    public static int menor(int a, int b){
+        return (a<=b)? a : b;
+    }
+    
+    public static int menor(int v[]){
+        int min = v[0];
+        for (int i = 0; i < v.length; i++) {
+            if(v[i]<min){
+                min = v[i];
+            }
+        }
+        return min;
+    }
+    
+    public static int mcd(int a, int b){
+        int r0 = a;
+        int r1 = b;
+        while (r1!=0) {
+            System.out.println(r1);
+            r1 = r0%r1;
+            System.out.println(r1);
+            return mcd(b, r1);
+        }
+        return r0;
+        
+    }
+    
     public static int medio(int a, int b, int c){
         
         if (a>=b) {
@@ -332,6 +369,5 @@ public class Matematicas {
         } while (!(i >= v.length));
         return sum;
     }
-    
     
 }
