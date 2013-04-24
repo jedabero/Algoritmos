@@ -76,6 +76,21 @@ public class Matematicas {
         return cont;
     }
     
+    public static String convetirABinario(int n){
+        String conv = "";
+        if (n<2) {
+            conv = n + conv;
+            return conv;
+        }else{
+            while (n>=2) {
+                int r = n%2;
+                conv = r +conv;
+                n /= 2;
+            }
+            return "1"+conv;
+        }
+    }
+    
     public static boolean esDivisorDe(int n, int d){
         return (n%d==0);
     }
@@ -159,6 +174,14 @@ public class Matematicas {
         }
     }
     
+    public static int siguientePrimo(int n){
+        int sgte = n + 1;
+        while (!esPrimo(sgte)) {            
+            sgte++;
+        }
+        return sgte;
+    }
+    
     public static int sumar(int a, int b){
         return a+b;
     }
@@ -224,5 +247,6 @@ public class Matematicas {
         } while (!(i >= v.length));
         return sum;
     }
+    
     
 }
