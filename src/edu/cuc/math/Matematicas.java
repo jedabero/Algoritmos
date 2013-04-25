@@ -2,6 +2,7 @@
 package edu.cuc.math;
 
 import static edu.cuc.math.Conteos.*;
+import java.math.BigDecimal;
 
 /**
  *
@@ -110,35 +111,85 @@ public final class Matematicas {
         return (numDiv == 2);
     }
     
-    public static int factorialCiclo(int n){
+    public static int factorialCiclo(int n) throws Exception{
         int p = 1;
-        for (int i = 1; i <= n; i++) {
-            p *= i;
+        if(n<0){
+            throw new Exception("No hay factorial para enteros negativos");
+        }else if(n>12){
+            throw new Exception("Factorial muy grande para tipo int");
+        }else{
+            for (int i = 1; i <= n; i++) {
+                p *= i;
+            }
         }
         return p;
     }
     
-    public static long factorialCiclo(long n){
+    public static long longFactorialCiclo(int n) throws Exception{
         long p = 1;
-        for (long i = 1; i <= n; i++) {
-            p *= i;
+        if(n<0){
+            throw new Exception("No hay factorial para enteros negativos");
+        }else if(n>20){
+            throw new Exception("Factorial muy grande para tipo long");
+        }else{
+            for (int i = 1; i <= n; i++) {
+                p *= i;
+            }
         }
         return p;
     }
     
-    public static int factorialRecursivo(int n){
-        if (n == 0) {
+    public static double doubleFactorialCiclo(int n) throws Exception{
+        double p = 1;
+        if(n<0){
+            throw new Exception("No hay factorial para enteros negativos");
+        }else if(n>170){
+            throw new Exception("Factorial muy grande para tipo double");
+        }else{
+            for (int i = 1; i <= n; i++) {
+                p *= i;
+            }
+        }
+        return p;
+    }
+    
+    public static BigDecimal BigFactorialCiclo(int n) throws Exception{
+        BigDecimal p = BigDecimal.ONE;
+        if(n<0){
+            throw new Exception("No hay factorial para enteros negativos");
+        }else if(n>Integer.MAX_VALUE){
+            throw new Exception("Factorial muy grande para tipo BigDecimal");
+        }else{
+            for (int i = 1; i <= n; i++) {
+                System.out.println(p.precision());
+                System.out.println(i);
+                p = p.multiply(BigDecimal.valueOf(i));
+            }
+        }
+        return p;
+    }
+    
+    public static int factorialRecursivo(int n) throws Exception{
+        if(n<0) {
+            throw new Exception("No hay factorial para enteros negativos");
+        } else if (n == 0) {
             return 1;
+        } else if(n>12) {
+            throw new Exception("Factorial muy grande para tipo int");
         } else {
             return factorialRecursivo(n-1)*n;
         }
     }
     
-    public static long factorialRecursivo(long n){
-        if (n == 0) {
+    public static long LongFactorialRecursivo(int n) throws Exception{
+        if(n<0){
+            throw new Exception("No hay factorial para enteros negativos");
+        } else if (n == 0) {
             return 1;
+        } else if(n>20) {
+            throw new Exception("Factorial muy grande para tipo int");
         } else {
-            return factorialRecursivo(n-1)*n;
+            return LongFactorialRecursivo(n-1)*n;
         }
     }
     
