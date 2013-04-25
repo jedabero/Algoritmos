@@ -187,6 +187,14 @@ public final class Matematicas {
         
     }
     
+    public static long potencia(int a, int n){
+        long p = 1L;
+        for (int i = 1; i <= n; i++) {
+            p *= a;
+        }
+        return p;
+    }
+    
     public static double promedio(int v[]){
         return (sumarElementos(v)/(double)v.length);
     }
