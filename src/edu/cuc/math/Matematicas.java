@@ -187,8 +187,16 @@ public final class Matematicas {
         
     }
     
-    public static long potencia(int a, int n){
-        long p = 1L;
+    public static int potencia(int a, int n){
+        int p = 1;
+        for (int i = 1; i <= n; i++) {
+            p *= a;
+        }
+        return p;
+    }
+    
+    public static double potencia(double a, int n){
+        double p = 1;
         for (int i = 1; i <= n; i++) {
             p *= a;
         }
