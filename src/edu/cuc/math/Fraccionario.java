@@ -21,6 +21,10 @@ public class Fraccionario {
         }
     }
     
+    public String toString(){
+        return numerador+"/"+denominador;
+    }
+    
     public double valor(){
         valor = numerador/denominador;
         return valor;
@@ -68,6 +72,14 @@ public class Fraccionario {
         int num = num1 + num2;
         Fraccionario r = new Fraccionario(num, denComun);
         return r;
+    }
+    
+    public Fraccionario simplificar() throws Exception{
+        int mcd = Matematicas.mcd(numerador, denominador);
+        int n = numerador/mcd;
+        int d = denominador/mcd;
+        Fraccionario f = new Fraccionario(n, d);
+        return f;
     }
     
 }

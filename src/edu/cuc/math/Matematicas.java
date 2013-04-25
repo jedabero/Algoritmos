@@ -154,9 +154,7 @@ public final class Matematicas {
         int r0 = a;
         int r1 = b;
         while (r1!=0) {
-            System.out.println(r1);
             r1 = r0%r1;
-            System.out.println(r1);
             return mcd(b, r1);
         }
         return r0;
