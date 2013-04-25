@@ -101,6 +101,10 @@ public final class Matematicas {
         return (sumarDivisores(n) == n);
     }
     
+    public static boolean esPerfecto(long n){
+        return (sumarDivisores(n) == n);
+    }
+    
     public static boolean esPrimo(int n){
         int numDiv = contarDivisores(n);
         return (numDiv == 2);
@@ -225,8 +229,8 @@ public final class Matematicas {
         return sgte;
     }
     
-    public static int siguientePerfecto(int n){
-        int sgte = n + 1;
+    public static long siguientePerfecto(int n){
+        long sgte = n + 1;
         while (!esPerfecto(sgte)) {
             sgte++;
         }
@@ -264,6 +268,16 @@ public final class Matematicas {
     public static int sumarDivisores(int n){
         int sum = 0;
         for (int i = 1; i <= n/2; i++) {
+            if (n%i==0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
+    
+    public static long sumarDivisores(long n){
+        long sum = 0;
+        for (long i = 1; i <= n/2; i++) {
             if (n%i==0) {
                 sum += i;
             }
