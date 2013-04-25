@@ -118,7 +118,23 @@ public final class Matematicas {
         return p;
     }
     
+    public static long factorialCiclo(long n){
+        long p = 1;
+        for (long i = 1; i <= n; i++) {
+            p *= i;
+        }
+        return p;
+    }
+    
     public static int factorialRecursivo(int n){
+        if (n == 0) {
+            return 1;
+        } else {
+            return factorialRecursivo(n-1)*n;
+        }
+    }
+    
+    public static long factorialRecursivo(long n){
         if (n == 0) {
             return 1;
         } else {
