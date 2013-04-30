@@ -1,9 +1,9 @@
 
 package edu.cuc.ventanas;
 
+import edu.cuc.listas.ListaPalabras;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import edu.cuc.listas.ListaPalabras;
 
 /**
  *
@@ -13,6 +13,7 @@ public class VentanaLista extends javax.swing.JFrame {
     
     private ListaPalabras lista1;
     private DefaultListModel dlmModelo = new DefaultListModel();
+    
     /**
      * Creates new form ventanaLista
      */
@@ -21,7 +22,7 @@ public class VentanaLista extends javax.swing.JFrame {
         try {
             lista1 = new ListaPalabras(50);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.INFORMATION_MESSAGE);
         }
         lstDatos.setModel(dlmModelo);
     }
@@ -144,10 +145,13 @@ public class VentanaLista extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         
         String dato = txtaDato.getText();
+        
         if(lista1.adicionarPalabra(dato)){
+            
             JOptionPane.showMessageDialog(this,
                     "Palabra "+dato+" adicionada con exito.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
+            
             txtaDato.setText(null);
             dlmModelo.addElement(dato);
         }else{
