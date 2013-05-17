@@ -154,4 +154,20 @@ public class ListaPalabras {
         }
     }
     
+    public int metodoPalabras(int numero, int cantidad) throws Exception{
+        if((indicePalabra>0)&&(numero>0)&&(cantidad>0)){
+            int acum = 0;
+            for (int i = indicePalabra-1; i >=0 ; i--) {
+                if(numero%i==0){
+                    if(listadoPalabras[i].length()!=cantidad){
+                        acum += listadoPalabras[i].length();
+                    }
+                }
+            }
+            return acum;
+        }else{
+            throw new Exception("Datos incorrectos");
+        }
+    }
+    
 }

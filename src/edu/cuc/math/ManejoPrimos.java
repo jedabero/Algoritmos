@@ -48,13 +48,9 @@ public class ManejoPrimos {
     
     public static int[] listaPrimos2(int cantPrimos){
         int[] lista = new int[cantPrimos];
-        int numActual = 2;
-        for (int i = 0; i < cantPrimos;) {
-            if(esPrimo(numActual)){
-                lista[i] = numActual;
-                i++;
-            }
-            numActual++;
+        lista[0] = 2;
+        for (int i = 0; i < cantPrimos; i++) {
+            lista[i] = siguientePrimo(lista[i-1]);
         }
         return lista;
     }
