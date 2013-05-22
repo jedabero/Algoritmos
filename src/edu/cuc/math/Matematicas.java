@@ -229,7 +229,36 @@ public final class Matematicas {
             return mcd(b, r1);
         }
         return r0;
-        
+    }
+    
+    public static long mcd(long a, long b){
+        long r0 = a;
+        long r1 = b;
+        while (r1!=0) {
+            r1 = r0%r1;
+            return mcd(b, r1);
+        }
+        return r0;
+    }
+    
+    public static double mcd(double a, double b){
+        double r0 = a;
+        double r1 = b;
+        while (r1!=0) {
+            r1 = r0%r1;
+            return mcd(b, r1);
+        }
+        return r0;
+    }
+    
+    public static BigDecimal mcd(BigDecimal a, BigDecimal b){
+        BigDecimal r0 = a;
+        BigDecimal r1 = b;
+        while(r1.compareTo(BigDecimal.ZERO) != 0){
+            r1 = r0.remainder(r1);
+            return mcd(b, r1);
+        }
+        return r0;
     }
     
     public static int medio(int a, int b, int c){
