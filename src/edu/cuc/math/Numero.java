@@ -29,8 +29,8 @@ public class Numero implements Cloneable{
         //Inicializando variables
         this.valor = numero;
         this.enDecimal = enDecimal;
-        //Obteniendo parte entera y decimal numero
-        BigDecimal[] num = numero.divideAndRemainder(BigDecimal.ONE);
+         //Obteniendo parte entera y decimal numero
+        BigDecimal[] num = valor.divideAndRemainder(BigDecimal.ONE);
         boolean intZero = num[0].compareTo(BigDecimal.ZERO) == 0;
         BigDecimal integer = (intZero)?BigDecimal.ZERO:num[0].stripTrailingZeros();
         BigDecimal tempNum = num[1];
@@ -50,13 +50,22 @@ public class Numero implements Cloneable{
         denominador = tempDen.divide(mcd);
         //Se suma la parte entera del numero
         numerador = integer.multiply(denominador).add(tempNum);
-        
         init();
     }
     
     private void init(){
         valor = numerador.divide(denominador, 9, RoundingMode.HALF_UP).stripTrailingZeros();
-        numero =""+((enDecimal)? valor.toPlainString() : numerador+"/"+denominador);
+        boolean denEq1 = denominador.compareTo(BigDecimal.ONE) == 0;
+        numero =""+((enDecimal)? valor.toPlainString() : numerador+((denEq1)?"":"/"+denominador));
+    }
+    
+    private void simplificar(){
+       //Maximo común divisor
+        BigDecimal mcd = Matematicas.mcd(numerador, denominador);
+        //Se simplifica la fracción
+        numerador = numerador.divide(mcd);
+        denominador = denominador.divide(mcd);
+        init();
     }
     
     public Numero toDecimal(){
@@ -85,7 +94,7 @@ public class Numero implements Cloneable{
         BigDecimal num = num1.add(num2);
         n.numerador = num;
         n.denominador = denComun;
-        n.init();
+        n.simplificar();
         return n;
     }
     
@@ -97,7 +106,7 @@ public class Numero implements Cloneable{
         BigDecimal num = num1.subtract(num2);
         n.numerador = num;
         n.denominador = denComun;
-        n.init();
+        n.simplificar();
         return n;
     }
     
@@ -105,7 +114,7 @@ public class Numero implements Cloneable{
         Numero n = copia();
         n.numerador = n.numerador.multiply(multiplicando.numerador);
         n.denominador = n.denominador.multiply(multiplicando.denominador);
-        n.init();
+        n.simplificar();
         return n;
     }
     
@@ -113,7 +122,7 @@ public class Numero implements Cloneable{
         Numero n = copia();
         n.numerador = n.numerador.multiply(dividendo.denominador);
         n.denominador = n.denominador.multiply(dividendo.numerador);
-        n.init();
+        n.simplificar();
         return n;
     }
     
@@ -133,14 +142,13 @@ public class Numero implements Cloneable{
     }
     
     public static void main(String[] args) {
-        System.out.println(Matematicas.mcd(3, 5));
-        Numero x = new Numero(BigDecimal.valueOf(100), true);
-        Numero y = new Numero(BigDecimal.valueOf(7), true);
+        Numero x = new Numero(BigDecimal.valueOf(10), false);
+        Numero y = new Numero(BigDecimal.valueOf(-7), true);
         System.out.println(x);
         System.out.println(x.toDecimal());
         System.out.println(x.toFracionario());
         System.out.println(x.multiplicar(y));
-        System.out.println(x.dividir(y).toFracionario());
+        System.out.println(x.dividir(y));
     }
 
     public BigDecimal getValor() {
