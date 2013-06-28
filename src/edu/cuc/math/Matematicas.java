@@ -262,37 +262,46 @@ public final class Matematicas {
     }
     
     public static int medio(int a, int b, int c){
-        
+        //return (a>=b)?((b<c)?((a>=c)?c:a)):b:((a<c)?((b>=c)?c:b):a);
         if (a>=b) {
-            if (a>=c) {
-                if (b>=c) {
-                    return b;
-                }else{
+            if (b<c) {
+                if (a>=c) {
                     return c;
+                }else{
+                    return a;
                 }
             } else {
-                return a;
+                return b;
             }
         } else {
-            if(b>=c){
-                if (a>=c) {
-                    return a;
-                } else {
+            if(a<c){
+                if (b>=c) {
                     return c;
+                } else {
+                    return b;
                 }
             }else{
-                return b;
+                return a;
             }
         }
         
     }
     
-    public static int potencia(int a, int n){
-        int p = 1;
-        for (int i = 1; i <= n; i++) {
-            p *= a;
+    public static int potencia(int a, int n) throws ArithmeticException {
+        switch(n){
+            case 0:
+                return 1;
+            case 1:
+                return a;
+            default:
+                if(n<0){
+                    throw new ArithmeticException("Expoente negativo: "+n);
+                }else if(n%2==0){
+                    return potencia(a*a, n/2);
+                }else if(n%2==1){
+                    return potencia(a*a, (n-1)/2);
+                }
         }
-        return p;
     }
     
     public static double potencia(double a, int n){

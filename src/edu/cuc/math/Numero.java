@@ -62,9 +62,17 @@ public class Numero implements Cloneable{
     private void simplificar(){
        //Maximo común divisor
         BigDecimal mcd = Matematicas.mcd(numerador, denominador);
-        //Se simplifica la fracción
-        numerador = numerador.divide(mcd);
-        denominador = denominador.divide(mcd);
+        System.out.println("n/d : "+numerador+"/"+denominador);
+        System.out.println("mcd(n,d)="+mcd);
+        int mcds = mcd.signum();    //TODO dividing by a negative number
+        if(mcd.abs().compareTo(BigDecimal.ONE) != 0) {
+            //Se simplifica la fracción
+            numerador = numerador.divide(mcd);
+            denominador = denominador.divide(mcd);
+        } else if(mcd.signum() == -1) {
+            int ns = numerador.signum();
+            int ds = denominador.signum();
+        }
         init();
     }
     
@@ -122,8 +130,19 @@ public class Numero implements Cloneable{
         Numero n = copia();
         n.numerador = n.numerador.multiply(dividendo.denominador);
         n.denominador = n.denominador.multiply(dividendo.numerador);
+        System.out.println("--n/d="+numerador+" / "+denominador);
         n.simplificar();
         return n;
+    }
+    
+    public static Numero fraccion(BigDecimal numerador, BigDecimal denominador){
+        Numero n = new Numero(numerador);
+        Numero d = new Numero(denominador);
+        return fraccion(n, d);
+    }
+    
+    public static Numero fraccion(Numero numerador, Numero denominador){
+        return numerador.dividir(denominador);
     }
     
     public Numero copia(){
@@ -142,13 +161,16 @@ public class Numero implements Cloneable{
     }
     
     public static void main(String[] args) {
-        Numero x = new Numero(BigDecimal.valueOf(10), false);
+        Numero x = new Numero(BigDecimal.valueOf(10.5), false);
         Numero y = new Numero(BigDecimal.valueOf(-7), true);
-        System.out.println(x);
-        System.out.println(x.toDecimal());
-        System.out.println(x.toFracionario());
-        System.out.println(x.multiplicar(y));
-        System.out.println(x.dividir(y));
+        Numero f = Numero.fraccion(BigDecimal.valueOf(10.5), BigDecimal.valueOf(-7));
+        Numero f2 = Numero.fraccion(x, y);
+        System.out.println("x = "+x);
+        System.out.println("x(d) = "+x.toDecimal());
+        System.out.println("x(f) = "+x.toFracionario());
+        System.out.println("x*y = "+x.multiplicar(y));
+        System.out.println("10.5/-7 = "+f);
+        System.out.println("x/y = "+f2);
     }
 
     public BigDecimal getValor() {
