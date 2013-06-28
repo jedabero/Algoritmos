@@ -157,8 +157,6 @@ public final class Matematicas {
         BigDecimal p = BigDecimal.ONE;
         if(n<0){
             throw new Exception("No hay factorial para enteros negativos");
-        }else if(n>Integer.MAX_VALUE){
-            throw new Exception("Factorial muy grande para tipo BigDecimal");
         }else{
             for (int i = 1; i <= n; i++) {
                 System.out.println(p.precision());
@@ -302,14 +300,43 @@ public final class Matematicas {
                     return potencia(a*a, (n-1)/2);
                 }
         }
+        return 0;
     }
     
     public static double potencia(double a, int n){
-        double p = 1;
-        for (int i = 1; i <= n; i++) {
-            p *= a;
+        switch(n){
+            case 0:
+                return 1;
+            case 1:
+                return a;
+            default:
+                if(n<0){
+                    throw new ArithmeticException("Expoente negativo: "+n);
+                }else if(n%2==0){
+                    return potencia(a*a, n/2);
+                }else if(n%2==1){
+                    return potencia(a*a, (n-1)/2);
+                }
         }
-        return p;
+        return 0;
+    }
+    
+    public static BigDecimal potencia(BigDecimal a, int n){
+        switch(n){
+            case 0:
+                return BigDecimal.ONE;
+            case 1:
+                return a;
+            default:
+                if(n<0){
+                    throw new ArithmeticException("Expoente negativo: "+n);
+                }else if(n%2==0){
+                    return potencia(a.multiply(a), n/2);
+                }else if(n%2==1){
+                    return potencia(a.multiply(a), (n-1)/2);
+                }
+        }
+        return BigDecimal.ZERO;
     }
     
     public static double promedio(int v[]){
