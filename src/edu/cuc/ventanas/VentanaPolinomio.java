@@ -1,4 +1,3 @@
-
 package edu.cuc.ventanas;
 
 import edu.cuc.math.Polinomio2;
@@ -133,11 +132,11 @@ public class VentanaPolinomio extends javax.swing.JFrame {
 
     private void resolveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resolveButtonActionPerformed
         Polinomio2 poli;
-        
+
         int A = Integer.parseInt(coefAText.getText());
         int B = Integer.parseInt(coefBText.getText());
         int C = Integer.parseInt(coefCText.getText());
-        
+
         try {
             poli = new Polinomio2(A, B, C);
         } catch (Exception ex) {
@@ -145,15 +144,15 @@ public class VentanaPolinomio extends javax.swing.JFrame {
             Logger.getLogger(VentanaPolinomio.class.getName()).log(Level.SEVERE, null, ex);
         }
         poli.calcRoots();
-        txtResult.setText("<html>Raiz1: "+poli.root1+"<p>Raiz2: "+poli.root2);
-        
+        txtResult.setText("<html>Raiz1: " + poli.root1 + "<p>Raiz2: " + poli.root2);
+
     }//GEN-LAST:event_resolveButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

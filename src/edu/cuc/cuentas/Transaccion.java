@@ -1,16 +1,15 @@
-
 package edu.cuc.cuentas;
 
 import java.util.Date;
 
-
 public class Transaccion {
+
     private String tipoTransaccion;
     private Date fechaTransaccion;
     private double monto;
-    
+
     public Transaccion(String tipoTransaccion, Date fechaTransaccion,
-             double monto){
+            double monto) {
         this.tipoTransaccion = tipoTransaccion;
         this.fechaTransaccion = fechaTransaccion;
         this.monto = monto;
@@ -39,5 +38,4 @@ public class Transaccion {
     public void setMonto(double monto) {
         this.monto = monto;
     }
-    
 }

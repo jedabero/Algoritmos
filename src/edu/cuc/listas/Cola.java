@@ -5,40 +5,40 @@ package edu.cuc.listas;
  * @author jedabero
  */
 public class Cola {
-    
+
     private int frente;
     private int tope;
     private int elem;
     private int maxCola;
     private Dato[] listaDatos;
-    
-    public Cola(int maxC){
+
+    public Cola(int maxC) {
         frente = 0;
         tope = -1;
         elem = 0;
         maxCola = maxC - 1;
         listaDatos = new Dato[maxCola];
     }
-    
-    public int elementos(){
+
+    public int elementos() {
         return elem;
     }
-    
-    public int maximoCola(){
+
+    public int maximoCola() {
         return maxCola;
     }
-    
-    public boolean colaLlena(){
-        return elementos()==maximoCola();
+
+    public boolean colaLlena() {
+        return elementos() == maximoCola();
     }
-    
-    public boolean colaVacia(){
-        return elementos()==0;
+
+    public boolean colaVacia() {
+        return elementos() == 0;
     }
-    
-    public boolean instertar(int v){
+
+    public boolean instertar(int v) {
         if (!colaLlena()) {
-            if (tope<maxCola) {
+            if (tope < maxCola) {
                 tope++;
             } else {
                 tope = 0;
@@ -51,8 +51,8 @@ public class Cola {
             return false;
         }
     }
-    
-    public Dato quitar(){
+
+    public Dato quitar() {
         Dato nd = listaDatos[frente];
         if (frente < maxCola) {
             frente++;
@@ -60,14 +60,13 @@ public class Cola {
             frente = 0;
         }
         elem--;
-        return  nd;
+        return nd;
     }
-    
-    public void vaciarCola(){
+
+    public void vaciarCola() {
         Dato ap;
         while (!colaVacia()) {
             ap = quitar();
         }
     }
-    
 }

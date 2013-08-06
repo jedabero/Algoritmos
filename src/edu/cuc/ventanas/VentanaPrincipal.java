@@ -96,13 +96,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
-       // TODO add your handling code here:
+        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_botonAceptarActionPerformed
 
     private void campo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo1ActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_campo1ActionPerformed
 
     private void campo1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo1KeyTyped

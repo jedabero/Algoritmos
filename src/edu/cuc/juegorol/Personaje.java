@@ -1,4 +1,3 @@
-
 package edu.cuc.juegorol;
 
 /**
@@ -6,15 +5,15 @@ package edu.cuc.juegorol;
  * @author Jedabero
  */
 public class Personaje {
-    
+
     private String nombre;
     private String raza;
     private int fuerza;
     private int inteligencia;
     private int maxPuntosVida;
     private int puntosVida;
-    
-    public Personaje(String nombre, String raza, int fuerza, int intel, int hp){
+
+    public Personaje(String nombre, String raza, int fuerza, int intel, int hp) {
         this.nombre = nombre;
         this.raza = raza;
         this.fuerza = fuerza;
@@ -70,5 +69,4 @@ public class Personaje {
     public void setPuntosVida(int puntosVida) {
         this.puntosVida = puntosVida;
     }
-    
 }

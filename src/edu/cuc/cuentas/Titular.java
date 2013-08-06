@@ -1,22 +1,19 @@
-
 package edu.cuc.cuentas;
-
 
 /**
  *
  * @author Jedabero
  */
 public class Titular {
-    
-    
+
     private String nombres;
     private String apellidos;
     private String cedula;
     private String telefono;
     private String direccion;
     //private Date fechaNacimiento;
-    
-    public Titular(String nombres, String apellidos, String cedula){
+
+    public Titular(String nombres, String apellidos, String cedula) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.cedula = cedula;
@@ -61,5 +58,4 @@ public class Titular {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
 }

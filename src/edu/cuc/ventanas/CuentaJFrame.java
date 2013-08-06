@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class CuentaJFrame extends javax.swing.JFrame {
 
     private Cuenta ctaVentana;
-    
+
     /**
      * Creates new form CuentaJFrame
      */
@@ -267,42 +267,42 @@ public class CuentaJFrame extends javax.swing.JFrame {
         String nombres = textNombres.getText();
         String apellidos = textApellidos.getText();
         String numeroCuenta = textNumCuenta.getText();
-        if(cedula.isEmpty()){
+        if (cedula.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Es necesario el numero de "
                     + "identificación del usuario.");
-        }else if(apellidos.isEmpty()){
+        } else if (apellidos.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor ingrese el/los apelli"
                     + "do(s) del usuario");
-        }else if(nombres.isEmpty()){
+        } else if (nombres.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor ingrese el/los nombre"
                     + "(s) del usuario");
-        }else if(numeroCuenta.isEmpty()){
+        } else if (numeroCuenta.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No ha ingresado un número de cuenta");
-        }else{
+        } else {
             //2. Crear instancias
-        Titular titular1 = new Titular(nombres, apellidos, cedula);
-        Cuenta cuenta1 = new Cuenta(titular1, numeroCuenta);
-        //3. Confirmar acciones
-        JOptionPane.showMessageDialog(this, "Cuenta creada");
-        textCedula.setText(null);
-        textNombres.setText(null);
-        textApellidos.setText(null);
-        textNumCuenta.setText(null);
-        this.setTitle("Cuenta activa: "+numeroCuenta);
-        
-        this.ctaVentana = cuenta1;
-        
-        txtTitular.setText(titular1.getNombres()+" "+titular1.getApellidos());
-        txtSaldo.setText(""+cuenta1.getSaldo());
+            Titular titular1 = new Titular(nombres, apellidos, cedula);
+            Cuenta cuenta1 = new Cuenta(titular1, numeroCuenta);
+            //3. Confirmar acciones
+            JOptionPane.showMessageDialog(this, "Cuenta creada");
+            textCedula.setText(null);
+            textNombres.setText(null);
+            textApellidos.setText(null);
+            textNumCuenta.setText(null);
+            this.setTitle("Cuenta activa: " + numeroCuenta);
+
+            this.ctaVentana = cuenta1;
+
+            txtTitular.setText(titular1.getNombres() + " " + titular1.getApellidos());
+            txtSaldo.setText("" + cuenta1.getSaldo());
         }
-        
+
     }//GEN-LAST:event_btnCrearCuentaActionPerformed
 
     private void btnConsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsignarActionPerformed
         //1. Verificar que haya una cuenta:
-        if(ctaVentana==null){
+        if (ctaVentana == null) {
             JOptionPane.showMessageDialog(this, "No ha creado una cuenta!");
-        }else{
+        } else {
             String txtmonto = textMonto.getText();
             double monto = Double.parseDouble(txtmonto);
             try {
@@ -310,35 +310,35 @@ public class CuentaJFrame extends javax.swing.JFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
-            JOptionPane.showMessageDialog(this, "Se han consignado "+monto+" a la cuenta");
-            txtSaldo.setText(""+ctaVentana.getSaldo());
+            JOptionPane.showMessageDialog(this, "Se han consignado " + monto + " a la cuenta");
+            txtSaldo.setText("" + ctaVentana.getSaldo());
         }
-        
-        
+
+
     }//GEN-LAST:event_btnConsignarActionPerformed
 
     private void btnRetirarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarActionPerformed
         // TODO add your handling code here:
-        if(ctaVentana==null){
+        if (ctaVentana == null) {
             JOptionPane.showMessageDialog(this, "No ha creado una cuenta!");
-        }else{
+        } else {
             String txtmonto = textMonto.getText();
             double monto = Double.parseDouble(txtmonto);
             try {
-                if(ctaVentana.retirar(monto)){
-                    JOptionPane.showMessageDialog(this, "Se han retirado "+monto+" de la cuenta");
-                    txtSaldo.setText(""+ctaVentana.getSaldo());
-                }else{
+                if (ctaVentana.retirar(monto)) {
+                    JOptionPane.showMessageDialog(this, "Se han retirado " + monto + " de la cuenta");
+                    txtSaldo.setText("" + ctaVentana.getSaldo());
+                } else {
                     JOptionPane.showMessageDialog(this, "Cuenta con saldo insuficiente");
                 }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
-            
-            
-            
+
+
+
         }
-        
+
     }//GEN-LAST:event_btnRetirarActionPerformed
 
     /**
@@ -376,7 +376,6 @@ public class CuentaJFrame extends javax.swing.JFrame {
             }
         });
     }
-    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConsignar;
     private javax.swing.JButton btnCrearCuenta;

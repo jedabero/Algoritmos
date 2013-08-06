@@ -1,4 +1,3 @@
-
 package edu.cuc.ventanas;
 
 import edu.cuc.listas.ListaPalabras;
@@ -10,10 +9,10 @@ import javax.swing.JOptionPane;
  * @author jberdugo10
  */
 public class VentanaLista extends javax.swing.JFrame {
-    
+
     private ListaPalabras lista1;
     private DefaultListModel dlmModelo = new DefaultListModel();
-    
+
     /**
      * Creates new form ventanaLista
      */
@@ -143,49 +142,49 @@ public class VentanaLista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        
+
         String dato = txtaDato.getText();
-        
-        if(lista1.adicionarPalabra(dato)){
-            
+
+        if (lista1.adicionarPalabra(dato)) {
+
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" adicionada con exito.", "Infromación",
+                    "Palabra " + dato + " adicionada con exito.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
-            
+
             txtaDato.setText(null);
             dlmModelo.addElement(dato);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" no se logró adicionar.", "Infromación",
+                    "Palabra " + dato + " no se logró adicionar.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
         }
-        
+
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         String dato = txtaDato.getText();
-        if(lista1.buscar(dato)){
+        if (lista1.buscar(dato)) {
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" encontrada.", "Infromación",
+                    "Palabra " + dato + " encontrada.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" no se encuentra.", "Infromación",
+                    "Palabra " + dato + " no se encuentra.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         String dato = txtaDato.getText();
-        if(lista1.eliminar(dato)){
+        if (lista1.eliminar(dato)) {
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" se eliminó existosamente.", "Infromación",
+                    "Palabra " + dato + " se eliminó existosamente.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
             txtaDato.setText(null);
             dlmModelo.removeElement(dato);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this,
-                    "Palabra "+dato+" no se encuentra.", "Infromación",
+                    "Palabra " + dato + " no se encuentra.", "Infromación",
                     JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
