@@ -1,4 +1,4 @@
-package pruebas;
+package edu.cuc.pruebas;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -8,7 +8,7 @@ import edu.cuc.listas.ListaPalabras;
  *
  * @author jberdugo10
  */
-public class PruebaLista {
+public class PruebaListaPalabras {
 
     public static void main(String args[]) {
         ListaPalabras miLista = null;
@@ -17,7 +17,9 @@ public class PruebaLista {
             miLista = new ListaPalabras(10);
             miLista2 = new ListaPalabras(10);
         } catch (Exception ex) {
-            Logger.getLogger(PruebaLista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PruebaListaPalabras.class.getName()).log(Level.SEVERE, null, ex);
+            miLista = new ListaPalabras();
+            miLista2 = new ListaPalabras();
         }
 
         miLista.adicionarPalabra("Hola");
@@ -44,7 +46,7 @@ public class PruebaLista {
             System.out.println("Elementos con longitud por encima del promedio: "
                     + miLista.contarElementosPromedio("Clase"));
         } catch (Exception ex) {
-            Logger.getLogger(PruebaLista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PruebaListaPalabras.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -58,7 +60,7 @@ public class PruebaLista {
             System.out.println("Palabras comunes entre\n" + miLista + "\ny\n" + miLista2
                     + "\nes:\n" + miLista.palabrasComunes(miLista, miLista2));
         } catch (Exception ex) {
-            Logger.getLogger(PruebaLista.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PruebaListaPalabras.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

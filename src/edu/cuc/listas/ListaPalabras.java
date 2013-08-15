@@ -9,6 +9,11 @@ public class ListaPalabras {
     private String[] listadoPalabras;
     private int indicePalabra;
 
+    public ListaPalabras() {
+        listadoPalabras = new String[10];
+        indicePalabra = 0;
+    }
+
     public ListaPalabras(int dimLista) throws Exception {
         if (dimLista > 0) {
             listadoPalabras = new String[dimLista];
