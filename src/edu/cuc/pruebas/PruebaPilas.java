@@ -11,7 +11,7 @@ import java.util.Random;
 public class PruebaPilas {
 
     public static void main(String args[]) {
-        int size = 10000;
+        int size = 15000;
         Pila pila = new Pila(size);
         Pila pila2 = new Pila(size);
         Pila pila3 = new Pila(size);
@@ -35,8 +35,6 @@ public class PruebaPilas {
         pila.bubbleSort();
         pila2.bubbleSortOptimized();
         pila3.quickSort(0,pila3.cima(), true);
-        System.out.println(pila3);
-        
         
     }
 }

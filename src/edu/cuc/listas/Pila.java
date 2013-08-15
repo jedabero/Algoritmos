@@ -131,42 +131,38 @@ public class Pila {
         System.out.println("Time(ms):" + (dt));
     }
 
-    private int sort(int first, int last) {
-        int pivot = listaDatos[(first+last)/2].getValor();
+    public void quickSort(int first, int last, boolean isLast) {
+        long t0 = 0;
+        if (isLast) {
+            t0 = System.currentTimeMillis();
+        }
+
         int i = first;
         int j = last;
+        int pivot = listaDatos[first + (last - first) / 2].getValor();
         while (i < j) {
-            while ((listaDatos[i].getValor() > pivot) && (i < last)) {
+            while (listaDatos[i].getValor() < pivot) {
                 i++;
             }
-            while ((listaDatos[j].getValor() <= pivot) && (j > first)) {
+
+            while (listaDatos[j].getValor() > pivot) {
                 j--;
             }
 
-            if ((i == first) && (j == i)) {
-                quickSort(first + 1, last, false);
-            }
-            if ((i == last) && (j == i)) {
-                quickSort(first, last - 1, false);
-            }
-
-            if (i < j) {
+            if (i <= j) {
                 cambiar(i, j);
+                i++;
+                j--;
             }
         }
 
-        return j;
-    }
-
-    public void quickSort(int first, int last, boolean isLast) {
-        long t0 = System.currentTimeMillis();
-        //if (first < last) {
-            //int k = sort(first, last);
-            //System.out.println(k);
-            //quickSort(first, k, false);
-            //quickSort(k + 1, last, false);
-        //}
-        java.util.Arrays.sort(listaDatos);
+        if (first < j) {
+            quickSort(first, j, false);
+        }
+        if (i < last) {
+            quickSort(i, last, false);
+        }
+        //java.util.Arrays.sort(listaDatos);
         if (isLast) {
             long dt = System.currentTimeMillis() - t0;
             System.out.println("Time(ms):" + (dt));
