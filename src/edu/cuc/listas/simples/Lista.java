@@ -3,12 +3,14 @@ package edu.cuc.listas.simples;
 /**
  *
  * @author jedabero
+ * @param <T>
+ * 
  */
 public class Lista<T> {
 
     private Nodo cab;
     private Nodo fin;
-
+    
     public Lista() {
     }
 
@@ -87,10 +89,36 @@ public class Lista<T> {
             return true;
         }
     }
+    
+    public Nodo<T> buscar() {
+        //TODO generic search
+        return null;
+    }
 
     @Override
     public String toString() {
-        return "ListaEnlazada{" + '}';
+        String m = "Lista de "+cab.getObject().getClass().getSimpleName();
+        if (esVacia()) {
+            return m ;
+        } else {
+            Nodo x = cab;
+            while(x != null) {
+                m += "\n\t" + x.getObject().toString();
+                x = x.getSig();
+            }
+            
+        }
+        
+        return m;
+    }
+    
+    public static void main(String[] args) {
+        Lista<String> l = new Lista<String>();
+        
+        l.agregaCab("Hola");
+        l.agregaCab("lol");
+        
+        System.out.println(l);
     }
     
 }
