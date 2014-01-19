@@ -3,6 +3,7 @@ package edu.cuc.listas.simples;
 /**
  *
  * @author jedabero
+ * @param <T>
  */
 public class Nodo<T> {
 

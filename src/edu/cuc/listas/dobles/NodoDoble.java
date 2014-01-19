@@ -3,6 +3,7 @@ package edu.cuc.listas.dobles;
 /**
  *
  * @author jedabero
+ * @param <T>
  */
 public class NodoDoble<T> {
     

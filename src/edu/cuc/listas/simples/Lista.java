@@ -26,11 +26,11 @@ public class Lista<T> {
         return new Nodo(object);
     }
 
-    public void agregaCab(T object) {
-        agregaCab(creaNodo(object));
+    public void agregarCabecera(T object) {
+        agregarCabecera(creaNodo(object));
     }
 
-    public void agregaCab(Nodo p) {
+    public void agregarCabecera(Nodo p) {
         if (esVacia()) {
             fin = p;
         } else {
@@ -39,11 +39,11 @@ public class Lista<T> {
         cab = p;
     }
 
-    public void agregaFin(T object) {
-        agregaFin(creaNodo(object));
+    public void agregarFinal(T object) {
+        agregarFinal(creaNodo(object));
     }
 
-    public void agregaFin(Nodo p) {
+    public void agregarFinal(Nodo p) {
         if (esVacia()) {
             cab = p;
         } else {
@@ -52,7 +52,7 @@ public class Lista<T> {
         fin = p;
     }
 
-    public boolean eliminarNodoPrincipio() {
+    public boolean eliminarCabecera() {
         if (esVacia()) {
             return false;
         } else {
@@ -68,7 +68,7 @@ public class Lista<T> {
         }  
     }
 
-    public boolean eliminarNodoFinal() {
+    public boolean eliminarFinal() {
         if (esVacia()) {
             return false;
         } else {
@@ -91,8 +91,7 @@ public class Lista<T> {
     }
     
     public Nodo<T> buscar() {
-        //TODO generic search
-        return null;
+        throw new UnsupportedOperationException("Not supported yet");
     }
 
     @Override
@@ -115,8 +114,8 @@ public class Lista<T> {
     public static void main(String[] args) {
         Lista<String> l = new Lista<String>();
         
-        l.agregaCab("Hola");
-        l.agregaCab("lol");
+        l.agregarCabecera("Hola");
+        l.agregarCabecera("lol");
         
         System.out.println(l);
     }
